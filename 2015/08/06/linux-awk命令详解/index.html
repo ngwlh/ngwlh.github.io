@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>linux awk命令详解 | Mayro</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="简介
+awk是一个强大的文本分析工具，相对于grep的查找，sed的编辑，awk在其对数据分析并生成报告时，显得尤为强大。简单来说awk就是把文件逐行的读入，以空格为默认分隔符将每行切片，切开的部分再进行各种分析处理。
+awk有3个不同版本: awk、nawk和gawk，未作特别说明，一般指gawk，gawk 是 AWK 的 GNU 版本。
+awk其名称得自于它的创始人 Alfred Aho 、P">
+<meta property="og:type" content="article">
+<meta property="og:title" content="linux awk命令详解">
+<meta property="og:url" content="http://yoursite.com/2015/08/06/linux-awk命令详解/index.html">
+<meta property="og:site_name" content="Mayro">
+<meta property="og:description" content="简介
+awk是一个强大的文本分析工具，相对于grep的查找，sed的编辑，awk在其对数据分析并生成报告时，显得尤为强大。简单来说awk就是把文件逐行的读入，以空格为默认分隔符将每行切片，切开的部分再进行各种分析处理。
+awk有3个不同版本: awk、nawk和gawk，未作特别说明，一般指gawk，gawk 是 AWK 的 GNU 版本。
+awk其名称得自于它的创始人 Alfred Aho 、P">
+<meta property="og:updated_time" content="2015-08-06T08:15:02.780Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="linux awk命令详解">
+<meta name="twitter:description" content="简介
+awk是一个强大的文本分析工具，相对于grep的查找，sed的编辑，awk在其对数据分析并生成报告时，显得尤为强大。简单来说awk就是把文件逐行的读入，以空格为默认分隔符将每行切片，切开的部分再进行各种分析处理。
+awk有3个不同版本: awk、nawk和gawk，未作特别说明，一般指gawk，gawk 是 AWK 的 GNU 版本。
+awk其名称得自于它的创始人 Alfred Aho 、P">
+  
+    <link rel="alternative" href="/atom.xml" title="Mayro" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  <link rel="stylesheet" href="/css/style.css" type="text/css">
+  
+
+</head>
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Mayro</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" results="0" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-linux-awk命令详解" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2015/08/06/linux-awk命令详解/" class="article-date">
+  <time datetime="2015-08-06T08:14:31.000Z" itemprop="datePublished">2015-08-06</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      linux awk命令详解
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>简介</p>
+<p>awk是一个强大的文本分析工具，相对于grep的查找，sed的编辑，awk在其对数据分析并生成报告时，显得尤为强大。简单来说awk就是把文件逐行的读入，以空格为默认分隔符将每行切片，切开的部分再进行各种分析处理。</p>
+<p>awk有3个不同版本: awk、nawk和gawk，未作特别说明，一般指gawk，gawk 是 AWK 的 GNU 版本。</p>
+<p>awk其名称得自于它的创始人 Alfred Aho 、Peter Weinberger 和 Brian Kernighan 姓氏的首个字母。实际上 AWK 的确拥有自己的语言： AWK 程序设计语言 ， 三位创建者已将它正式定义为“样式扫描和处理语言”。它允许您创建简短的程序，这些程序读取输入文件、为数据排序、处理数据、对输入执行计算以及生成报表，还有无数其他的功能。</p>
+<p>使用方法</p>
+<p>awk ‘{pattern + action}’ {filenames}</p>
+<p>尽管操作可能会很复杂，但语法总是这样，其中 pattern 表示 AWK 在数据中查找的内容，而 action 是在找到匹配内容时所执行的一系列命令。花括号（{}）不需要在程序中始终出现，但它们用于根据特定的模式对一系列指令进行分组。 pattern就是要表示的正则表达式，用斜杠括起来。</p>
+<p>awk语言的最基本功能是在文件或者字符串中基于指定规则浏览和抽取信息，awk抽取信息后，才能进行其他文本操作。完整的awk脚本通常用来格式化文本文件中的信息。</p>
+<p>通常，awk是以文件的一行为处理单位的。awk每接收文件的一行，然后执行相应的命令，来处理文本。</p>
+<p>调用awk</p>
+<p>有三种方式调用awk</p>
+<p>复制代码 1.命令行方式 awk [-F field-separator] ‘commands’ input-file(s) 其中，commands 是真正awk命令，[-F域分隔符]是可选的。 input-file(s) 是待处理的文件。 在awk中，文件的每一行中，由域分隔符分开的每一项称为一个域。通常，在不指名-F域分隔符的情况下，默认的域分隔符是空格。 2.shell脚本方式 将所有的awk命令插入一个文件，并使awk程序可执行，然后awk命令解释器作为脚本的首行，一遍通过键入脚本名称来调用。 相当于shell脚本首行的：#!/bin/sh 可以换成：#!/bin/awk</p>
+<p>3.将所有的awk命令插入一个单独文件，然后调用： awk -f awk-script-file input-file(s) 其中，-f选项加载awk-script-file中的awk脚本，input-file(s)跟上面的是一样的。</p>
+<p>入门实例</p>
+<p>假设last -n 5的输出如下</p>
+<p>[root@www ~]# last -n 5 &lt;==仅取出前五行 root pts/1 192.168.1.100 Tue Feb 10 11:21 still logged in root pts/1 192.168.1.100 Tue Feb 10 00:46 - 02:28 (01:41) root pts/1 192.168.1.100 Mon Feb 9 11:41 - 18:30 (06:48) dmtsai pts/1 192.168.1.100 Mon Feb 9 11:41 - 11:41 (00:00) root tty1 Fri Sep 5 14:09 - 14:10 (00:01)</p>
+<p>如果只是显示最近登录的5个帐号</p>
+<p>last -n 5 | awk ‘{print $1}’</p>
+<p>root root root dmtsai root</p>
+<p>awk工作流程是这样的：读入有’\n’换行符分割的一条记录，然后将记录按指定的域分隔符划分域，填充域，$0则表示所有域,$1表示第一个域,$n表示第n个域。默认域分隔符是”空白键” 或 “[tab]键”,所以$1表示登录用户，$3表示登录用户ip,以此类推。</p>
+<p>如果只是显示/etc/passwd的账户</p>
+<p>cat /etc/passwd |awk -F ‘:’ ‘{print $1}’ root daemon bin sys</p>
+<p>这种是awk+action的示例，每行都会执行action{print $1}。</p>
+<p>-F指定域分隔符为’:’。</p>
+<p>如果只是显示/etc/passwd的账户和账户对应的shell,而账户与shell之间以tab键分割</p>
+<p>cat /etc/passwd |awk -F ‘:’ ‘{print $1”\t”$7}’ root /bin/bash daemon /bin/sh bin /bin/sh sys /bin/sh</p>
+<p>如果只是显示/etc/passwd的账户和账户对应的shell,而账户与shell之间以逗号分割,而且在所有行添加列名name,shell,在最后一行添加”blue,/bin/nosh”。</p>
+<p>cat /etc/passwd |awk -F ‘:’ ‘BEGIN {print “name,shell”} {print $1”,”$7} END {print “blue,/bin/nosh”}’ name,shell root,/bin/bash daemon,/bin/sh bin,/bin/sh sys,/bin/sh …. blue,/bin/nosh</p>
+<p>awk工作流程是这样的：先执行BEGING，然后读取文件，读入有/n换行符分割的一条记录，然后将记录按指定的域分隔符划分域，填充域，$0则表示所有域,$1表示第一个域,$n表示第n个域,随后开始执行模式所对应的动作action。接着开始读入第二条记录······直到所有的记录都读完，最后执行END操作。</p>
+<p>搜索/etc/passwd有root关键字的所有行</p>
+<p>awk -F: ‘/root/‘ /etc/passwd root:x:0:0:root:/root:/bin/bash</p>
+<p>这种是pattern的使用示例，匹配了pattern(这里是root)的行才会执行action(没有指定action，默认输出每行的内容)。</p>
+<p>搜索支持正则，例如找root开头的: awk -F: ‘/^root/‘ /etc/passwd</p>
+<p>搜索/etc/passwd有root关键字的所有行，并显示对应的shell</p>
+<p>awk -F: ‘/root/{print $7}’ /etc/passwd</p>
+<p>/bin/bash</p>
+<p>这里指定了action{print $7}</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2015/08/06/linux-awk命令详解/" data-id="ciczy5jbe0005dgm3p4okd2v4" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2015/08/06/关于软件设计阶段需求分析与设计的一点看法/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          关于软件设计阶段需求分析与设计的一点看法
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2015/08/06/HTTP中Get与Post的区别/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">HTTP中Get与Post的区别</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+  
+    
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/08/">August 2015</a><span class="archive-list-count">8</span></li></ul>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recents</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2015/08/06/youku/">youku</a>
+          </li>
+        
+          <li>
+            <a href="/2015/08/06/利用Spring-Boot-快速搭建项/">利用Spring Boot 快速搭建项</a>
+          </li>
+        
+          <li>
+            <a href="/2015/08/06/关于软件设计阶段需求分析与设计的一点看法/">关于软件设计阶段需求分析与设计的一点看法</a>
+          </li>
+        
+          <li>
+            <a href="/2015/08/06/linux-awk命令详解/">linux awk命令详解</a>
+          </li>
+        
+          <li>
+            <a href="/2015/08/06/HTTP中Get与Post的区别/">HTTP中Get与Post的区别</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2015 lihua wang<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css" type="text/css">
+  <script src="/fancybox/jquery.fancybox.pack.js" type="text/javascript"></script>
+
+
+<script src="/js/script.js" type="text/javascript"></script>
+
+  </div>
+</body>
+</html>
