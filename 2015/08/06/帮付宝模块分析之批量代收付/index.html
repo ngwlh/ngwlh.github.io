@@ -20,72 +20,100 @@
 <meta name="twitter:description" content="从c-team调出之后，一直在学习代收付的东西，所以今天就写点批量代收付的内容，这部分内容不多，但是对支付平台而言算是支付核心的一部分。从用途方面来说，可能只对c-team在剥离商户门户时才能用到，其他感兴趣的同学可以大概看看。
 目前，对商户而言有两种方式实现批量代收付，一种是在商户门户上传文件，一种是连接代收付接口。无论哪种方式对于代收付系统而言后台处理逻辑相差无几。所以，我们以商户门户上传文件">
   
-    <link rel="alternative" href="/atom.xml" title="Mayro" type="application/atom+xml">
-  
   
     <link rel="icon" href="/favicon.png">
   
-  <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+
   <link rel="stylesheet" href="/css/style.css" type="text/css">
+  
+    <link rel="stylesheet" href="/fancybox/jquery.fancybox.css" type="text/css">
+  
+  
+    <link rel="stylesheet" href="/scrollLoading/style.css" type="text/css">
+  
+  
+
+
+  
+    <style type="text/css">
+      .logo { background-image:url(http://ppoffice.github.io/hexo-theme-hueman/css/images/logo-header.png); }
+    </style>
+  
+
+  
+    <link href='//fonts.useso.com/css?family=Titillium+Web:300,400,600' rel='stylesheet' type='text/css'>
+    <link href="//fonts.useso.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
   
 
 </head>
+
 <body>
-  <div id="container">
-    <div id="wrap">
-      <header id="header">
-  <div id="banner"></div>
+  <div id="wrap">
+    <header id="header">
   <div id="header-outer" class="outer">
-    <div id="header-title" class="inner">
-      <h1 id="logo-wrap">
-        <a href="/" id="logo">Mayro</a>
-      </h1>
-      
-    </div>
-    <div id="header-inner" class="inner">
-      <nav id="main-nav">
-        <a id="main-nav-toggle" class="nav-icon"></a>
-        
-          <a class="main-nav-link" href="/">Home</a>
-        
-          <a class="main-nav-link" href="/archives">Archives</a>
-        
-      </nav>
-      <nav id="sub-nav">
-        
-          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
-        
-        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
-      </nav>
-      <div id="search-form-wrap">
-        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" results="0" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
+    <div class="container">
+      <div class="container-inner">
+        <div id="header-title">
+          <h1 class="logo-wrap">
+            <a href="/" class="logo"></a>
+          </h1>
+          
+        </div>
+        <div id="header-inner" class="nav-container">
+          <a id="main-nav-toggle" class="nav-icon"></a>
+          <div class="nav-container-inner">
+            <ul id="main-nav">
+              
+                <li class="main-nav-list-item" ><a class="main-nav-list-link" href="/">主页</a></li>
+              
+                <li class="main-nav-list-item" ><a class="main-nav-list-link" href="/">归档</a></li>
+              
+                <li class="main-nav-list-item" ><a class="main-nav-list-link" href="/">标签</a></li>
+              
+                <li class="main-nav-list-item" ><a class="main-nav-list-link" href="/about/index.html">关于</a></li>
+              
+            </ul>
+            <nav id="sub-nav">
+              <div id="search-form-wrap">
+                <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" results="0" class="search-form-input" placeholder="搜索"><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
+              </div>
+            </nav>
+          </div>
+        </div>
       </div>
     </div>
   </div>
 </header>
-      <div class="outer">
-        <section id="main"><article id="post-帮付宝模块分析之批量代收付" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2015/08/06/帮付宝模块分析之批量代收付/" class="article-date">
-  <time datetime="2015-08-06T07:59:00.000Z" itemprop="datePublished">2015-08-06</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
+    <div class="container">
+      <div class="main-body container-inner">
+        <div class="main-body-inner">
+          <section id="main">
+            <div class="main-body-header">
+
+              <h1 class="header">未分类</h1>
+            </div>
+            <div class="main-body-content">
+              
+  <article id="post-帮付宝模块分析之批量代收付" class="article article-single article-type-post" itemscope itemprop="blogPost">
+    <div class="article-inner">
+      <!--  -->
+      
+        <header class="article-header">
+          
   
     <h1 class="article-title" itemprop="name">
       帮付宝模块分析之批量代收付 
     </h1>
   
 
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
+        </header>
       
+      <p class="article-byline">
+        <a href="/2015/08/06/帮付宝模块分析之批量代收付/" class="article-date">
+  <time datetime="2015-08-06T07:59:00.000Z" itemprop="datePublished">2015-08-06</time>
+</a>
+      </p>
+      <div class="article-entry" itemprop="articleBody">
         <p>从c-team调出之后，一直在学习代收付的东西，所以今天就写点批量代收付的内容，这部分内容不多，但是对支付平台而言算是支付核心的一部分。从用途方面来说，可能只对c-team在剥离商户门户时才能用到，其他感兴趣的同学可以大概看看。</p>
 <p>目前，对商户而言有两种方式实现批量代收付，一种是在商户门户上传文件，一种是连接代收付接口。无论哪种方式对于代收付系统而言后台处理逻辑相差无几。所以，我们以商户门户上传文件为例说明代收付流程以及涉及到的数据库表。</p>
 <p>批量代收付模块涉及主要表有五个:（TAMTMSFJNL）商户批次明细表、（TAMTMSFCT）商户批次总控表、（WDCTORDR）提现订单表、（CAPTXNJNL）代收付流水表、（CAPBATINF）代收付外发批次表。整体代收付流程请参照下图1(参考1)：<br><img src="/images/doc/pay.png" alt="daifu"><br>首先，商户制作报盘文件，文件格式是有帮付宝自定义的格式”.i”文件，文件的内容格式也是由帮付宝自定义。详情请参照《批量代收付文档规范》(参考2),报盘文件制作完成之后，商户在商户门户上传报盘文件（步骤1），文件上传之后，支付系统会检查文件的有效性、商户的有效性、计算费率、风控查询（步骤3）等等，如果上面的内容都检查没有问题，则将文件内容以及计算的费率一起入代收付总控表和代收付明细表（步骤2）。这时，商户管理员登陆商户门户，在商户门户查看刚才上传批次内容，如果确认批次内容正确无误商户管理员点击通过之后，系统将批次文件中的每条记录全部插入到提现订单表（步骤5）。风控操作人员审批之后财务人员再次审批，其实审批过程是修改提现订单表的交易状态（步骤6、步骤7）。风控人员和财务人员在对提现订单表中交易进行操作，无论何种结果，系统都会将交易状态同步到代收付总控表和代收付明细表（步骤8）。风控人员和财务人员对提现订单表中交易审批通过之后，系统将这些交易插入到代收付网关流水表（步骤9）。这时，等待系统定时任务，按照代收付外发控制表的参数信息对代收付网关流水表进行筛选，将筛选的交易进行打包发给银行进行处理。</p>
@@ -93,117 +121,242 @@
 <p>最后，商户在商户门户可以按照批次下载对应的回盘文件。本次批量交易完成。</p>
 <p>上面简述了商户在商户门户上传文件的方式报盘，对于接口方式而言，以报文的方式将发给帮付宝，完成上图的步骤2，这种方式没有步骤4，也就说不需要商户审核了。数据库内容可以参照payadm.doc(参考3)文档.以上就是批量代收付数据流程，各位有什么疑问可以联系我，一起探讨探讨。</p>
 
-      
+      </div>
+      <footer class="article-footer">
+        <a data-url="http://yoursite.com/2015/08/06/帮付宝模块分析之批量代收付/" data-id="cid005ct30001xsm3nzieyzd9" class="article-share-link">分享到</a>
+        
+        
+      </footer>
     </div>
-    <footer class="article-footer">
-      <a data-url="http://yoursite.com/2015/08/06/帮付宝模块分析之批量代收付/" data-id="ciczy5jaz0001dgm37hx5qxc1" class="article-share-link">Share</a>
+  </article>
+  
+  
+
+            </div>
+          </section>
+          <aside id="sidebar">
+  <a class="sidebar-toggle" title="Expand Sidebar"><i class="toggle icon"></i></a>
+  <div class="sidebar-top">
+    <p>关注我 :</p>
+    <ul class="social-links">
       
+        <li><a class="social-tooltip" title="twitter" href="/" target="_blank"><i id="icon-twitter" class="icon"></i></a></li>
       
-    </footer>
+        <li><a class="social-tooltip" title="facebook" href="/" target="_blank"><i id="icon-facebook" class="icon"></i></a></li>
+      
+        <li><a class="social-tooltip" title="google_plus" href="/" target="_blank"><i id="icon-google_plus" class="icon"></i></a></li>
+      
+        <li><a class="social-tooltip" title="github" href="https://github.com/ppoffice/hexo-theme-hueman" target="_blank"><i id="icon-github" class="icon"></i></a></li>
+      
+        <li><a class="social-tooltip" title="weibo" href="/" target="_blank"><i id="icon-weibo" class="icon"></i></a></li>
+      
+        <li><a class="social-tooltip" title="rss" href="/" target="_blank"><i id="icon-rss" class="icon"></i></a></li>
+      
+    </ul>
   </div>
   
     
 <nav id="article-nav">
   
     <a href="/2015/08/06/HTTP中Get与Post的区别/" id="article-nav-newer" class="article-nav-link-wrap">
-      <strong class="article-nav-caption">Newer</strong>
-      <div class="article-nav-title">
+      <strong class="article-nav-caption">下一篇</strong>
+      <p class="article-nav-title">
         
           HTTP中Get与Post的区别
         
-      </div>
+      </p>
+      <i class="icon" id="icon-chevron-right"></i>
     </a>
   
   
     <a href="/2015/08/06/跨行转账交易通道/" id="article-nav-older" class="article-nav-link-wrap">
-      <strong class="article-nav-caption">Older</strong>
-      <div class="article-nav-title">跨行转账交易通道</div>
+      <strong class="article-nav-caption">上一篇</strong>
+      <p class="article-nav-title">跨行转账交易通道</p>
+      <i class="icon" id="icon-chevron-left"></i>
     </a>
   
 </nav>
 
   
-</article>
-
-</section>
-        
-          <aside id="sidebar">
-  
+  <div class="widgets-container">
     
-  
-    
-  
-    
-  
-    
+      
   <div class="widget-wrap">
-    <h3 class="widget-title">Archives</h3>
+    <h3 class="widget-title">最新文章</h3>
     <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/08/">August 2015</a><span class="archive-list-count">8</span></li></ul>
-    </div>
-  </div>
-
+      <ul id="recent-post" class="">
+        
+          <li>
+            
+            <div class="item-thumbnail">
+              
+<a href="/2015/08/06/youku/" class="thumbnail">
   
-    
-  <div class="widget-wrap">
-    <h3 class="widget-title">Recents</h3>
-    <div class="widget">
-      <ul>
-        
-          <li>
-            <a href="/2015/08/06/youku/">youku</a>
+    <span class="thumbnail-image thumbnail-none"></span>
+  
+</a>
+
+            </div>
+            
+            <div class="item-inner">
+              <p class="item-category"></p>
+              <p class="item-title"><a href="/2015/08/06/youku/" class="title">youku</a></p>
+              <p class="item-date"><time datetime="2015-08-06T08:33:28.000Z" itemprop="datePublished">2015-08-06</time></p>
+            </div>
           </li>
         
           <li>
-            <a href="/2015/08/06/利用Spring-Boot-快速搭建项/">利用Spring Boot 快速搭建项</a>
+            
+            <div class="item-thumbnail">
+              
+<a href="/2015/08/06/利用Spring-Boot-快速搭建项/" class="thumbnail">
+  
+    <span class="thumbnail-image thumbnail-none"></span>
+  
+</a>
+
+            </div>
+            
+            <div class="item-inner">
+              <p class="item-category"></p>
+              <p class="item-title"><a href="/2015/08/06/利用Spring-Boot-快速搭建项/" class="title">利用Spring Boot 快速搭建项</a></p>
+              <p class="item-date"><time datetime="2015-08-06T08:20:08.000Z" itemprop="datePublished">2015-08-06</time></p>
+            </div>
           </li>
         
           <li>
-            <a href="/2015/08/06/关于软件设计阶段需求分析与设计的一点看法/">关于软件设计阶段需求分析与设计的一点看法</a>
+            
+            <div class="item-thumbnail">
+              
+<a href="/2015/08/06/关于软件设计阶段需求分析与设计的一点看法/" class="thumbnail">
+  
+    <span class="thumbnail-image thumbnail-none"></span>
+  
+</a>
+
+            </div>
+            
+            <div class="item-inner">
+              <p class="item-category"></p>
+              <p class="item-title"><a href="/2015/08/06/关于软件设计阶段需求分析与设计的一点看法/" class="title">关于软件设计阶段需求分析与设计的一点看法</a></p>
+              <p class="item-date"><time datetime="2015-08-06T08:15:39.000Z" itemprop="datePublished">2015-08-06</time></p>
+            </div>
           </li>
         
           <li>
-            <a href="/2015/08/06/linux-awk命令详解/">linux awk命令详解</a>
+            
+            <div class="item-thumbnail">
+              
+<a href="/2015/08/06/linux-awk命令详解/" class="thumbnail">
+  
+    <span class="thumbnail-image thumbnail-none"></span>
+  
+</a>
+
+            </div>
+            
+            <div class="item-inner">
+              <p class="item-category"></p>
+              <p class="item-title"><a href="/2015/08/06/linux-awk命令详解/" class="title">linux awk命令详解</a></p>
+              <p class="item-date"><time datetime="2015-08-06T08:14:31.000Z" itemprop="datePublished">2015-08-06</time></p>
+            </div>
           </li>
         
           <li>
-            <a href="/2015/08/06/HTTP中Get与Post的区别/">HTTP中Get与Post的区别</a>
+            
+            <div class="item-thumbnail">
+              
+<a href="/2015/08/06/HTTP中Get与Post的区别/" class="thumbnail">
+  
+    <span class="thumbnail-image thumbnail-none"></span>
+  
+</a>
+
+            </div>
+            
+            <div class="item-inner">
+              <p class="item-category"></p>
+              <p class="item-title"><a href="/2015/08/06/HTTP中Get与Post的区别/" class="title">HTTP中Get与Post的区别</a></p>
+              <p class="item-date"><time datetime="2015-08-06T08:12:39.000Z" itemprop="datePublished">2015-08-06</time></p>
+            </div>
           </li>
         
       </ul>
     </div>
   </div>
 
-  
-</aside>
+    
+      
+
+    
+      
+  <div class="widget-wrap widget-list">
+    <h3 class="widget-title">归档</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/08/">八月 2015</a><span class="archive-list-count">8</span></li></ul>
+    </div>
+  </div>
+
+
+    
+      
+
+    
+      
+
+    
+      
+  <div class="widget-wrap widget-list">
+    <h3 class="widget-title">链接</h3>
+    <div class="widget">
+      <ul>
         
+          <li>
+            <a href="http://hexo.io">Hexo</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+
+    
+  </div>
+</aside>
+        </div>
       </div>
-      <footer id="footer">
+    </div>
+    <footer id="footer">
   
-  <div class="outer">
-    <div id="footer-info" class="inner">
-      &copy; 2015 lihua wang<br>
-      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+  <div class="container">
+    <div class="container-inner">
+      <a id="back-to-top" href="javascript:;"><i class="icon" id="icon-angle-up"></i></a>
+      <div class="credit">
+        <h1 class="logo-wrap">
+          <a href="/" class="logo"></a>
+        </h1>
+        <p>&copy; 2015 lihua wang</p>
+        <p>Powered by <a href="//hexo.io/" target="_blank">Hexo</a>. Theme by <a href="//github.com/ppoffice" target="_blank">PPOffice</a></p>
+      </div>
     </div>
   </div>
 </footer>
-    </div>
-    <nav id="mobile-nav">
-  
-    <a href="/" class="mobile-nav-link">Home</a>
-  
-    <a href="/archives" class="mobile-nav-link">Archives</a>
-  
-</nav>
     
 
-<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+  <script src="http://code.jquery.com/jquery-2.1.3.min.js"></script>
 
 
-  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css" type="text/css">
+
   <script src="/fancybox/jquery.fancybox.pack.js" type="text/javascript"></script>
 
 
+
+  <script src="/scrollLoading/jquery.scrollLoading.js" type="text/javascript"></script>
+  <script src="/scrollLoading/main.js" type="text/javascript"></script>
+
+
+<script src="/js/html-patch.js" type="text/javascript"></script>
 <script src="/js/script.js" type="text/javascript"></script>
 
   </div>

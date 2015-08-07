@@ -25,72 +25,100 @@ awk是一个强大的文本分析工具，相对于grep的查找，sed的编辑�
 awk有3个不同版本: awk、nawk和gawk，未作特别说明，一般指gawk，gawk 是 AWK 的 GNU 版本。
 awk其名称得自于它的创始人 Alfred Aho 、P">
   
-    <link rel="alternative" href="/atom.xml" title="Mayro" type="application/atom+xml">
-  
   
     <link rel="icon" href="/favicon.png">
   
-  <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+
   <link rel="stylesheet" href="/css/style.css" type="text/css">
+  
+    <link rel="stylesheet" href="/fancybox/jquery.fancybox.css" type="text/css">
+  
+  
+    <link rel="stylesheet" href="/scrollLoading/style.css" type="text/css">
+  
+  
+
+
+  
+    <style type="text/css">
+      .logo { background-image:url(http://ppoffice.github.io/hexo-theme-hueman/css/images/logo-header.png); }
+    </style>
+  
+
+  
+    <link href='//fonts.useso.com/css?family=Titillium+Web:300,400,600' rel='stylesheet' type='text/css'>
+    <link href="//fonts.useso.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
   
 
 </head>
+
 <body>
-  <div id="container">
-    <div id="wrap">
-      <header id="header">
-  <div id="banner"></div>
+  <div id="wrap">
+    <header id="header">
   <div id="header-outer" class="outer">
-    <div id="header-title" class="inner">
-      <h1 id="logo-wrap">
-        <a href="/" id="logo">Mayro</a>
-      </h1>
-      
-    </div>
-    <div id="header-inner" class="inner">
-      <nav id="main-nav">
-        <a id="main-nav-toggle" class="nav-icon"></a>
-        
-          <a class="main-nav-link" href="/">Home</a>
-        
-          <a class="main-nav-link" href="/archives">Archives</a>
-        
-      </nav>
-      <nav id="sub-nav">
-        
-          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
-        
-        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
-      </nav>
-      <div id="search-form-wrap">
-        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" results="0" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
+    <div class="container">
+      <div class="container-inner">
+        <div id="header-title">
+          <h1 class="logo-wrap">
+            <a href="/" class="logo"></a>
+          </h1>
+          
+        </div>
+        <div id="header-inner" class="nav-container">
+          <a id="main-nav-toggle" class="nav-icon"></a>
+          <div class="nav-container-inner">
+            <ul id="main-nav">
+              
+                <li class="main-nav-list-item" ><a class="main-nav-list-link" href="/">主页</a></li>
+              
+                <li class="main-nav-list-item" ><a class="main-nav-list-link" href="/">归档</a></li>
+              
+                <li class="main-nav-list-item" ><a class="main-nav-list-link" href="/">标签</a></li>
+              
+                <li class="main-nav-list-item" ><a class="main-nav-list-link" href="/about/index.html">关于</a></li>
+              
+            </ul>
+            <nav id="sub-nav">
+              <div id="search-form-wrap">
+                <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" results="0" class="search-form-input" placeholder="搜索"><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
+              </div>
+            </nav>
+          </div>
+        </div>
       </div>
     </div>
   </div>
 </header>
-      <div class="outer">
-        <section id="main"><article id="post-linux-awk命令详解" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2015/08/06/linux-awk命令详解/" class="article-date">
-  <time datetime="2015-08-06T08:14:31.000Z" itemprop="datePublished">2015-08-06</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
+    <div class="container">
+      <div class="main-body container-inner">
+        <div class="main-body-inner">
+          <section id="main">
+            <div class="main-body-header">
+
+              <h1 class="header">未分类</h1>
+            </div>
+            <div class="main-body-content">
+              
+  <article id="post-linux-awk命令详解" class="article article-single article-type-post" itemscope itemprop="blogPost">
+    <div class="article-inner">
+      <!--  -->
+      
+        <header class="article-header">
+          
   
     <h1 class="article-title" itemprop="name">
       linux awk命令详解
     </h1>
   
 
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
+        </header>
       
+      <p class="article-byline">
+        <a href="/2015/08/06/linux-awk命令详解/" class="article-date">
+  <time datetime="2015-08-06T08:14:31.000Z" itemprop="datePublished">2015-08-06</time>
+</a>
+      </p>
+      <div class="article-entry" itemprop="articleBody">
         <p>简介</p>
 <p>awk是一个强大的文本分析工具，相对于grep的查找，sed的编辑，awk在其对数据分析并生成报告时，显得尤为强大。简单来说awk就是把文件逐行的读入，以空格为默认分隔符将每行切片，切开的部分再进行各种分析处理。</p>
 <p>awk有3个不同版本: awk、nawk和gawk，未作特别说明，一般指gawk，gawk 是 AWK 的 GNU 版本。</p>
@@ -129,117 +157,242 @@ awk其名称得自于它的创始人 Alfred Aho 、P">
 <p>/bin/bash</p>
 <p>这里指定了action{print $7}</p>
 
-      
+      </div>
+      <footer class="article-footer">
+        <a data-url="http://yoursite.com/2015/08/06/linux-awk命令详解/" data-id="cid005ct30005xsm3zyx1wi8z" class="article-share-link">分享到</a>
+        
+        
+      </footer>
     </div>
-    <footer class="article-footer">
-      <a data-url="http://yoursite.com/2015/08/06/linux-awk命令详解/" data-id="ciczy5jbe0005dgm3p4okd2v4" class="article-share-link">Share</a>
+  </article>
+  
+  
+
+            </div>
+          </section>
+          <aside id="sidebar">
+  <a class="sidebar-toggle" title="Expand Sidebar"><i class="toggle icon"></i></a>
+  <div class="sidebar-top">
+    <p>关注我 :</p>
+    <ul class="social-links">
       
+        <li><a class="social-tooltip" title="twitter" href="/" target="_blank"><i id="icon-twitter" class="icon"></i></a></li>
       
-    </footer>
+        <li><a class="social-tooltip" title="facebook" href="/" target="_blank"><i id="icon-facebook" class="icon"></i></a></li>
+      
+        <li><a class="social-tooltip" title="google_plus" href="/" target="_blank"><i id="icon-google_plus" class="icon"></i></a></li>
+      
+        <li><a class="social-tooltip" title="github" href="https://github.com/ppoffice/hexo-theme-hueman" target="_blank"><i id="icon-github" class="icon"></i></a></li>
+      
+        <li><a class="social-tooltip" title="weibo" href="/" target="_blank"><i id="icon-weibo" class="icon"></i></a></li>
+      
+        <li><a class="social-tooltip" title="rss" href="/" target="_blank"><i id="icon-rss" class="icon"></i></a></li>
+      
+    </ul>
   </div>
   
     
 <nav id="article-nav">
   
     <a href="/2015/08/06/关于软件设计阶段需求分析与设计的一点看法/" id="article-nav-newer" class="article-nav-link-wrap">
-      <strong class="article-nav-caption">Newer</strong>
-      <div class="article-nav-title">
+      <strong class="article-nav-caption">下一篇</strong>
+      <p class="article-nav-title">
         
           关于软件设计阶段需求分析与设计的一点看法
         
-      </div>
+      </p>
+      <i class="icon" id="icon-chevron-right"></i>
     </a>
   
   
     <a href="/2015/08/06/HTTP中Get与Post的区别/" id="article-nav-older" class="article-nav-link-wrap">
-      <strong class="article-nav-caption">Older</strong>
-      <div class="article-nav-title">HTTP中Get与Post的区别</div>
+      <strong class="article-nav-caption">上一篇</strong>
+      <p class="article-nav-title">HTTP中Get与Post的区别</p>
+      <i class="icon" id="icon-chevron-left"></i>
     </a>
   
 </nav>
 
   
-</article>
-
-</section>
-        
-          <aside id="sidebar">
-  
+  <div class="widgets-container">
     
-  
-    
-  
-    
-  
-    
+      
   <div class="widget-wrap">
-    <h3 class="widget-title">Archives</h3>
+    <h3 class="widget-title">最新文章</h3>
     <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/08/">August 2015</a><span class="archive-list-count">8</span></li></ul>
-    </div>
-  </div>
-
+      <ul id="recent-post" class="">
+        
+          <li>
+            
+            <div class="item-thumbnail">
+              
+<a href="/2015/08/06/youku/" class="thumbnail">
   
-    
-  <div class="widget-wrap">
-    <h3 class="widget-title">Recents</h3>
-    <div class="widget">
-      <ul>
-        
-          <li>
-            <a href="/2015/08/06/youku/">youku</a>
+    <span class="thumbnail-image thumbnail-none"></span>
+  
+</a>
+
+            </div>
+            
+            <div class="item-inner">
+              <p class="item-category"></p>
+              <p class="item-title"><a href="/2015/08/06/youku/" class="title">youku</a></p>
+              <p class="item-date"><time datetime="2015-08-06T08:33:28.000Z" itemprop="datePublished">2015-08-06</time></p>
+            </div>
           </li>
         
           <li>
-            <a href="/2015/08/06/利用Spring-Boot-快速搭建项/">利用Spring Boot 快速搭建项</a>
+            
+            <div class="item-thumbnail">
+              
+<a href="/2015/08/06/利用Spring-Boot-快速搭建项/" class="thumbnail">
+  
+    <span class="thumbnail-image thumbnail-none"></span>
+  
+</a>
+
+            </div>
+            
+            <div class="item-inner">
+              <p class="item-category"></p>
+              <p class="item-title"><a href="/2015/08/06/利用Spring-Boot-快速搭建项/" class="title">利用Spring Boot 快速搭建项</a></p>
+              <p class="item-date"><time datetime="2015-08-06T08:20:08.000Z" itemprop="datePublished">2015-08-06</time></p>
+            </div>
           </li>
         
           <li>
-            <a href="/2015/08/06/关于软件设计阶段需求分析与设计的一点看法/">关于软件设计阶段需求分析与设计的一点看法</a>
+            
+            <div class="item-thumbnail">
+              
+<a href="/2015/08/06/关于软件设计阶段需求分析与设计的一点看法/" class="thumbnail">
+  
+    <span class="thumbnail-image thumbnail-none"></span>
+  
+</a>
+
+            </div>
+            
+            <div class="item-inner">
+              <p class="item-category"></p>
+              <p class="item-title"><a href="/2015/08/06/关于软件设计阶段需求分析与设计的一点看法/" class="title">关于软件设计阶段需求分析与设计的一点看法</a></p>
+              <p class="item-date"><time datetime="2015-08-06T08:15:39.000Z" itemprop="datePublished">2015-08-06</time></p>
+            </div>
           </li>
         
           <li>
-            <a href="/2015/08/06/linux-awk命令详解/">linux awk命令详解</a>
+            
+            <div class="item-thumbnail">
+              
+<a href="/2015/08/06/linux-awk命令详解/" class="thumbnail">
+  
+    <span class="thumbnail-image thumbnail-none"></span>
+  
+</a>
+
+            </div>
+            
+            <div class="item-inner">
+              <p class="item-category"></p>
+              <p class="item-title"><a href="/2015/08/06/linux-awk命令详解/" class="title">linux awk命令详解</a></p>
+              <p class="item-date"><time datetime="2015-08-06T08:14:31.000Z" itemprop="datePublished">2015-08-06</time></p>
+            </div>
           </li>
         
           <li>
-            <a href="/2015/08/06/HTTP中Get与Post的区别/">HTTP中Get与Post的区别</a>
+            
+            <div class="item-thumbnail">
+              
+<a href="/2015/08/06/HTTP中Get与Post的区别/" class="thumbnail">
+  
+    <span class="thumbnail-image thumbnail-none"></span>
+  
+</a>
+
+            </div>
+            
+            <div class="item-inner">
+              <p class="item-category"></p>
+              <p class="item-title"><a href="/2015/08/06/HTTP中Get与Post的区别/" class="title">HTTP中Get与Post的区别</a></p>
+              <p class="item-date"><time datetime="2015-08-06T08:12:39.000Z" itemprop="datePublished">2015-08-06</time></p>
+            </div>
           </li>
         
       </ul>
     </div>
   </div>
 
-  
-</aside>
+    
+      
+
+    
+      
+  <div class="widget-wrap widget-list">
+    <h3 class="widget-title">归档</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/08/">八月 2015</a><span class="archive-list-count">8</span></li></ul>
+    </div>
+  </div>
+
+
+    
+      
+
+    
+      
+
+    
+      
+  <div class="widget-wrap widget-list">
+    <h3 class="widget-title">链接</h3>
+    <div class="widget">
+      <ul>
         
+          <li>
+            <a href="http://hexo.io">Hexo</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+
+    
+  </div>
+</aside>
+        </div>
       </div>
-      <footer id="footer">
+    </div>
+    <footer id="footer">
   
-  <div class="outer">
-    <div id="footer-info" class="inner">
-      &copy; 2015 lihua wang<br>
-      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+  <div class="container">
+    <div class="container-inner">
+      <a id="back-to-top" href="javascript:;"><i class="icon" id="icon-angle-up"></i></a>
+      <div class="credit">
+        <h1 class="logo-wrap">
+          <a href="/" class="logo"></a>
+        </h1>
+        <p>&copy; 2015 lihua wang</p>
+        <p>Powered by <a href="//hexo.io/" target="_blank">Hexo</a>. Theme by <a href="//github.com/ppoffice" target="_blank">PPOffice</a></p>
+      </div>
     </div>
   </div>
 </footer>
-    </div>
-    <nav id="mobile-nav">
-  
-    <a href="/" class="mobile-nav-link">Home</a>
-  
-    <a href="/archives" class="mobile-nav-link">Archives</a>
-  
-</nav>
     
 
-<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+  <script src="http://code.jquery.com/jquery-2.1.3.min.js"></script>
 
 
-  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css" type="text/css">
+
   <script src="/fancybox/jquery.fancybox.pack.js" type="text/javascript"></script>
 
 
+
+  <script src="/scrollLoading/jquery.scrollLoading.js" type="text/javascript"></script>
+  <script src="/scrollLoading/main.js" type="text/javascript"></script>
+
+
+<script src="/js/html-patch.js" type="text/javascript"></script>
 <script src="/js/script.js" type="text/javascript"></script>
 
   </div>
