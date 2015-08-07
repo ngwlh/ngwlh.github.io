@@ -14,7 +14,7 @@
 <meta property="og:description" content="从c-team调出之后，一直在学习代收付的东西，所以今天就写点批量代收付的内容，这部分内容不多，但是对支付平台而言算是支付核心的一部分。从用途方面来说，可能只对c-team在剥离商户门户时才能用到，其他感兴趣的同学可以大概看看。
 目前，对商户而言有两种方式实现批量代收付，一种是在商户门户上传文件，一种是连接代收付接口。无论哪种方式对于代收付系统而言后台处理逻辑相差无几。所以，我们以商户门户上传文件">
 <meta property="og:image" content="http://yoursite.com/images/doc/pay.png">
-<meta property="og:updated_time" content="2015-08-06T08:08:05.657Z">
+<meta property="og:updated_time" content="2015-08-07T08:58:26.926Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="帮付宝模块分析之批量代收付 ">
 <meta name="twitter:description" content="从c-team调出之后，一直在学习代收付的东西，所以今天就写点批量代收付的内容，这部分内容不多，但是对支付平台而言算是支付核心的一部分。从用途方面来说，可能只对c-team在剥离商户门户时才能用到，其他感兴趣的同学可以大概看看。
@@ -75,7 +75,7 @@ var _hmt = _hmt || [];
               
                 <li class="main-nav-list-item" ><a class="main-nav-list-link" href="/">归档</a></li>
               
-                <li class="main-nav-list-item" ><a class="main-nav-list-link" href="/">标签</a></li>
+                <li class="main-nav-list-item" ><a class="main-nav-list-link" href="/tags">标签</a></li>
               
             </ul>
             <nav id="sub-nav">
@@ -128,9 +128,11 @@ var _hmt = _hmt || [];
 
       </div>
       <footer class="article-footer">
-        <a data-url="http://yoursite.com/2015/08/06/帮付宝模块分析之批量代收付/" data-id="cid1e9ggq0004rom370p9wjav" class="article-share-link">分享到</a>
+        <a data-url="http://yoursite.com/2015/08/06/帮付宝模块分析之批量代收付/" data-id="cid1ejw030006mom3sd1zch88" class="article-share-link">分享到</a>
         
         
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/代收付/">代收付</a></li></ul>
+
       </footer>
     </div>
   </article>
@@ -170,11 +172,11 @@ var _hmt = _hmt || [];
     
 <nav id="article-nav">
   
-    <a href="/2015/08/06/HTTP中Get与Post的区别/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2015/08/06/linux-awk命令详解/" id="article-nav-newer" class="article-nav-link-wrap">
       <strong class="article-nav-caption">下一篇</strong>
       <p class="article-nav-title">
         
-          HTTP中Get与Post的区别
+          linux awk命令详解
         
       </p>
       <i class="icon" id="icon-chevron-right"></i>
@@ -197,6 +199,25 @@ var _hmt = _hmt || [];
     <h3 class="widget-title">最新文章</h3>
     <div class="widget">
       <ul id="recent-post" class="">
+        
+          <li>
+            
+            <div class="item-thumbnail">
+              
+<a href="/2015/08/07/hello-world/" class="thumbnail">
+  
+    <span class="thumbnail-image thumbnail-none"></span>
+  
+</a>
+
+            </div>
+            
+            <div class="item-inner">
+              <p class="item-category"></p>
+              <p class="item-title"><a href="/2015/08/07/hello-world/" class="title">Hello World</a></p>
+              <p class="item-date"><time datetime="2015-08-07T08:57:49.820Z" itemprop="datePublished">2015-08-07</time></p>
+            </div>
+          </li>
         
           <li>
             
@@ -274,25 +295,6 @@ var _hmt = _hmt || [];
             </div>
           </li>
         
-          <li>
-            
-            <div class="item-thumbnail">
-              
-<a href="/2015/08/06/HTTP中Get与Post的区别/" class="thumbnail">
-  
-    <span class="thumbnail-image thumbnail-none"></span>
-  
-</a>
-
-            </div>
-            
-            <div class="item-inner">
-              <p class="item-category"></p>
-              <p class="item-title"><a href="/2015/08/06/HTTP中Get与Post的区别/" class="title">HTTP中Get与Post的区别</a></p>
-              <p class="item-date"><time datetime="2015-08-06T08:12:39.000Z" itemprop="datePublished">2015-08-06</time></p>
-            </div>
-          </li>
-        
       </ul>
     </div>
   </div>
@@ -305,7 +307,7 @@ var _hmt = _hmt || [];
   <div class="widget-wrap widget-list">
     <h3 class="widget-title">归档</h3>
     <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/08/">八月 2015</a><span class="archive-list-count">9</span></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/08/">八月 2015</a><span class="archive-list-count">8</span></li></ul>
     </div>
   </div>
 
@@ -315,7 +317,7 @@ var _hmt = _hmt || [];
   <div class="widget-wrap widget-list">
     <h3 class="widget-title">标签</h3>
     <div class="widget">
-      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/B2B/">B2B</a><span class="tag-list-count">1</span></li></ul>
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/B2B/">B2B</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/awk/">awk</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/代收付/">代收付</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/跨行转账/">跨行转账</a><span class="tag-list-count">1</span></li></ul>
     </div>
   </div>
 
@@ -325,7 +327,7 @@ var _hmt = _hmt || [];
   <div class="widget-wrap widget-float">
     <h3 class="widget-title">标签云</h3>
     <div class="widget tagcloud">
-      <a href="/tags/B2B/" style="font-size: 10px;">B2B</a>
+      <a href="/tags/B2B/" style="font-size: 10px;">B2B</a> <a href="/tags/awk/" style="font-size: 10px;">awk</a> <a href="/tags/代收付/" style="font-size: 10px;">代收付</a> <a href="/tags/跨行转账/" style="font-size: 10px;">跨行转账</a>
     </div>
   </div>
 
