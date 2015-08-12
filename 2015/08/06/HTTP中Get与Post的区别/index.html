@@ -3,22 +3,19 @@
 <head>
   <meta charset="utf-8">
   
-  <title>关于软件设计阶段需求分析与设计的一点看法 | Mayro</title>
+  <title>HTTP中Get与Post的区别 | Mayro</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="在基金支付项目过程中，从项目开发到测试完成耗时3个月之久，虽然在这期间有第三方的问题，但是我们自身的问题非常多，比如需求不确定、流程不明确、与第三方沟通不深导致整个流程修改，也遇到过由于数据表设计不够完善导致表结构的改动。
-在我看来这里面主要的问题是出在需求分析及设计上，没有经过讨论仅仅靠个人对需求的理解就确定系统流程是不完善的，没有进行过系统模块结构设计、流程设计、数据库设计就直接进行代码开发的">
+  <meta name="description" content="Http定义了与服务器交互的不同方法，最基本的方法有4种，分别是GET，POST，PUT，DELETE。URL全称是资源描述符，我们可以这样认 为：一个URL地址，它用于描述一个网络上的资源，而HTTP中的GET，POST，PUT，DELETE就对应着对这个资源的查，改，增，删4个操作。GET一般用于获取/查询资源信息，而POST一般用于更新资源信息。根据HTTP规范，GET用于信息获取，而且应该">
 <meta property="og:type" content="article">
-<meta property="og:title" content="关于软件设计阶段需求分析与设计的一点看法">
-<meta property="og:url" content="http://yoursite.com/2015/08/06/关于软件设计阶段需求分析与设计的一点看法/index.html">
+<meta property="og:title" content="HTTP中Get与Post的区别">
+<meta property="og:url" content="http://yoursite.com/2015/08/06/HTTP中Get与Post的区别/index.html">
 <meta property="og:site_name" content="Mayro">
-<meta property="og:description" content="在基金支付项目过程中，从项目开发到测试完成耗时3个月之久，虽然在这期间有第三方的问题，但是我们自身的问题非常多，比如需求不确定、流程不明确、与第三方沟通不深导致整个流程修改，也遇到过由于数据表设计不够完善导致表结构的改动。
-在我看来这里面主要的问题是出在需求分析及设计上，没有经过讨论仅仅靠个人对需求的理解就确定系统流程是不完善的，没有进行过系统模块结构设计、流程设计、数据库设计就直接进行代码开发的">
-<meta property="og:image" content="http://img.hb.aicdn.com/2c20f66720829b86dcdc9e3aa92aef10f3395cbc3b89a-Olzb8R_fw658">
-<meta property="og:updated_time" content="2015-08-12T07:00:59.058Z">
+<meta property="og:description" content="Http定义了与服务器交互的不同方法，最基本的方法有4种，分别是GET，POST，PUT，DELETE。URL全称是资源描述符，我们可以这样认 为：一个URL地址，它用于描述一个网络上的资源，而HTTP中的GET，POST，PUT，DELETE就对应着对这个资源的查，改，增，删4个操作。GET一般用于获取/查询资源信息，而POST一般用于更新资源信息。根据HTTP规范，GET用于信息获取，而且应该">
+<meta property="og:image" content="https://gd2.alicdn.com/bao/uploaded/i2/10882029078713220/T1v0LrFeteXXXXXXXX_!!0-item_pic.jpg">
+<meta property="og:updated_time" content="2015-08-12T07:04:30.766Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="关于软件设计阶段需求分析与设计的一点看法">
-<meta name="twitter:description" content="在基金支付项目过程中，从项目开发到测试完成耗时3个月之久，虽然在这期间有第三方的问题，但是我们自身的问题非常多，比如需求不确定、流程不明确、与第三方沟通不深导致整个流程修改，也遇到过由于数据表设计不够完善导致表结构的改动。
-在我看来这里面主要的问题是出在需求分析及设计上，没有经过讨论仅仅靠个人对需求的理解就确定系统流程是不完善的，没有进行过系统模块结构设计、流程设计、数据库设计就直接进行代码开发的">
+<meta name="twitter:title" content="HTTP中Get与Post的区别">
+<meta name="twitter:description" content="Http定义了与服务器交互的不同方法，最基本的方法有4种，分别是GET，POST，PUT，DELETE。URL全称是资源描述符，我们可以这样认 为：一个URL地址，它用于描述一个网络上的资源，而HTTP中的GET，POST，PUT，DELETE就对应着对这个资源的查，改，增，删4个操作。GET一般用于获取/查询资源信息，而POST一般用于更新资源信息。根据HTTP规范，GET用于信息获取，而且应该">
   
   
     <link rel="icon" href="/favicon.png">
@@ -99,7 +96,7 @@ var _hmt = _hmt || [];
             </div>
             <div class="main-body-content">
               
-  <article id="post-关于软件设计阶段需求分析与设计的一点看法" class="article article-single article-type-post" itemscope itemprop="blogPost">
+  <article id="post-HTTP中Get与Post的区别" class="article article-single article-type-post" itemscope itemprop="blogPost">
     <div class="article-inner">
       <!--  -->
       
@@ -107,34 +104,34 @@ var _hmt = _hmt || [];
           
   
     <h1 class="article-title" itemprop="name">
-      关于软件设计阶段需求分析与设计的一点看法
+      HTTP中Get与Post的区别
     </h1>
   
 
         </header>
       
       <p class="article-byline">
-        <a href="/2015/08/06/关于软件设计阶段需求分析与设计的一点看法/" class="article-date">
-  <time datetime="2015-08-06T08:15:39.000Z" itemprop="datePublished">2015-08-06</time>
+        <a href="/2015/08/06/HTTP中Get与Post的区别/" class="article-date">
+  <time datetime="2015-08-06T08:12:39.000Z" itemprop="datePublished">2015-08-06</time>
 </a>
       </p>
       <div class="article-entry" itemprop="articleBody">
-        <p><img src="http://img.hb.aicdn.com/2c20f66720829b86dcdc9e3aa92aef10f3395cbc3b89a-Olzb8R_fw658" alt=""><br>在基金支付项目过程中，从项目开发到测试完成耗时3个月之久，虽然在这期间有第三方的问题，但是我们自身的问题非常多，比如需求不确定、流程不明确、与第三方沟通不深导致整个流程修改，也遇到过由于数据表设计不够完善导致表结构的改动。</p>
-<p>在我看来这里面主要的问题是出在需求分析及设计上，没有经过讨论仅仅靠个人对需求的理解就确定系统流程是不完善的，没有进行过系统模块结构设计、流程设计、数据库设计就直接进行代码开发的风险很大，虽然基金支付这个项目并不大，而且大部分流程都十分简单，</p>
-<p>但也不能直接进行代发开发、边开发边确定模块、流程、数据库表，在项目初期大部分风险都是可以预估及避免的。下面就需求分析及设计提出几个建议： 1.在整个项目开发期间，业务人员和开发人员必须天天都在一起工作。需求是一个概念性的东西，内在的很多东西都是不确定的，所以需要进行需求分析将它确定下来，通过模块结构设计、流程设计、数据库设计进一步固化，在设计时考虑后续的需求变化以及程序的可延展性，保证提供有价值的软件。需求说明书与需求规格说明书是非常重要的，《用户需求说明书》是用用户的语言进行描述，让用户和开发团队对于需求的达成一致的理解，《需求规格说明书》，则是对用户需求的分析，形成系统要具有的功能，这个是真正提供用户可交互操作的文档，也就是后期设计和代码开发的重要基线 2.涉及到的第三方必须前期进行深度交流沟通，确定每一个流程、接口细节，最具有效果并富有效率的传递信息的方法，就是面对面的交谈。 3.简单是最根本的，无论模块、流程、还是数据库都必须简单有效，因为当需求开始进行变化时我们的程序会渐渐出现下面几个特点<br>•僵化性：很难对系统进行改动，因为每个改动都会迫使许多对系统其他部分的其它改动。</p>
-<p>•脆弱性：对系统的改动会导致系统中和改动的地方在概念上无关的许多地方出现问题。</p>
-<p>•牢固性：很难解开系统的纠结，使之成为一些可在其他系统中重用的组件。</p>
-<p>•粘滞性：做正确的事情比做错误的事情要困难。</p>
-<p>•不必要的复杂性：设计中包含有不具任何直接好处的基础结构。</p>
-<p>•不必要的重复性：设计中包含有重复的结构，而该重复的结构本可以使用单一的抽象进行统一。</p>
-<p>•晦涩性：很难阅读、理解。没有很好地表现出意图。 所以在程序中要避免复杂化、严谨化，尽量做到开放可变动的。</p>
-<p>4.制定计划，并且所有人员都必须严格按照此计划进行，除非有特别大的变动，进行相应的计划修整。计划要细分到各个功能模块，人员安排及时间点。</p>
+        <p><img src="https://gd2.alicdn.com/bao/uploaded/i2/10882029078713220/T1v0LrFeteXXXXXXXX_!!0-item_pic.jpg" alt=""><br>Http定义了与服务器交互的不同方法，最基本的方法有4种，分别是GET，POST，PUT，DELETE。URL全称是资源描述符，我们可以这样认 为：一个URL地址，它用于描述一个网络上的资源，而HTTP中的GET，POST，PUT，DELETE就对应着对这个资源的查，改，增，删4个操作。GET一般用于获取/查询资源信息，而POST一般用于更新资源信息。根据HTTP规范，GET用于信息获取，而且应该是安全的和幂等的，POST表示可能修改变服务器上的资源的请求 在实际的做的时候，很多人却没有按照HTTP规范去做，比如说：</p>
+<p>　　1.很多人贪方便，更新资源时用了GET，因为用POST必须要到FORM（表单），这样会麻烦一点。</p>
+<p>　　2.对资源的增，删，改，查操作，其实都可以通过GET/POST完成，不需要用到PUT和DELETE。</p>
+<p>看看GET和POST的区别：</p>
+<p>1.GET请求的数据会附在URL之后（就是 把数据放置在HTTP协议头中），以?分割URL和传输数据，参数之间以&amp;相连，如：login.action?name=hyddd&amp; password=idontknow&amp;verify=%E4%BD%A0%E5%A5%BD。如果数据是英文字母/数字，原样发送，如果是空 格，转换为+，如果是中文/其他字符，则直接把字符串用BASE64加密，得出如：%E4%BD%A0%E5%A5%BD，其中％XX中的XX为该符号以 16进制表示的ASCII。 POST把提交的数据则放置在是HTTP包的包体中。</p>
+<p>2.”GET方式提交的数据最多只能是1024字节，理论上POST没有限制，可传较大量的数据，IIS4中最大为80KB，IIS5中为100KB”</p>
+<p>3.POST的安全性要比GET的安全性高。注 意：这里所说的安全性和上面GET提到的“安全”不是同个概念。上面“安全”的含义仅仅是不作数据修改，而这里安全的含义是真正的Security的含 义，比如：通过GET提交数据，用户名和密码将明文出现在URL上，因为(1)登录页面有可能被浏览器缓存，(2)其他人查看浏览器的历史纪录，那么别人 就可以拿到你的账号和密码了，除此之外，使用GET提交数据还可能会造成Cross-site request forgery攻击。</p>
+<p>　　总结一下，Get是向服务器发索取数据的一种请求，而Post是向服务器提交数据的一种请求，在FORM（表单）中，Method默认为”GET”，实质上，GET和POST只是发送机制不同，并不是一个取一个发！</p>
 
       </div>
       <footer class="article-footer">
-        <a data-url="http://yoursite.com/2015/08/06/关于软件设计阶段需求分析与设计的一点看法/" data-id="cid1ejw03000amom3gpftw83w" class="article-share-link">分享到</a>
+        <a data-url="http://yoursite.com/2015/08/06/HTTP中Get与Post的区别/" data-id="cid8fm4570000ocm3le9j71fe" class="article-share-link">分享到</a>
         
         
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/get/">get</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/post/">post</a></li></ul>
+
       </footer>
     </div>
   </article>
@@ -142,7 +139,7 @@ var _hmt = _hmt || [];
   
   <section id="comments">
     <!-- 多说评论框 start -->
-    <div class="ds-thread" data-thread-key="post-关于软件设计阶段需求分析与设计的一点看法" data-title="关于软件设计阶段需求分析与设计的一点看法" data-url="http://yoursite.com/2015/08/06/关于软件设计阶段需求分析与设计的一点看法/"></div>
+    <div class="ds-thread" data-thread-key="post-HTTP中Get与Post的区别" data-title="HTTP中Get与Post的区别" data-url="http://yoursite.com/2015/08/06/HTTP中Get与Post的区别/"></div>
     <!-- 多说评论框 end -->
     <!-- 多说公共JS代码 start (一个网页只需插入一次) -->
     <script type="text/javascript">
@@ -174,20 +171,20 @@ var _hmt = _hmt || [];
     
 <nav id="article-nav">
   
-    <a href="/2015/08/06/利用Spring-Boot-快速搭建项/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2015/08/06/linux-awk命令详解/" id="article-nav-newer" class="article-nav-link-wrap">
       <strong class="article-nav-caption">下一篇</strong>
       <p class="article-nav-title">
         
-          利用Spring Boot 快速搭建项
+          linux awk命令详解
         
       </p>
       <i class="icon" id="icon-chevron-right"></i>
     </a>
   
   
-    <a href="/2015/08/06/linux-awk命令详解/" id="article-nav-older" class="article-nav-link-wrap">
+    <a href="/2015/08/06/帮付宝模块分析之批量代收付/" id="article-nav-older" class="article-nav-link-wrap">
       <strong class="article-nav-caption">上一篇</strong>
-      <p class="article-nav-title">linux awk命令详解</p>
+      <p class="article-nav-title">帮付宝模块分析之批量代收付 </p>
       <i class="icon" id="icon-chevron-left"></i>
     </a>
   

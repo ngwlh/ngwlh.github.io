@@ -13,8 +13,9 @@
 <meta property="og:site_name" content="Mayro">
 <meta property="og:description" content="从c-team调出之后，一直在学习代收付的东西，所以今天就写点批量代收付的内容，这部分内容不多，但是对支付平台而言算是支付核心的一部分。从用途方面来说，可能只对c-team在剥离商户门户时才能用到，其他感兴趣的同学可以大概看看。
 目前，对商户而言有两种方式实现批量代收付，一种是在商户门户上传文件，一种是连接代收付接口。无论哪种方式对于代收付系统而言后台处理逻辑相差无几。所以，我们以商户门户上传文件">
+<meta property="og:image" content="http://img.hb.aicdn.com/06390dcbaf3ec4860afd8249b76efd3514dc115f278a7-pe9vCV_fw658">
 <meta property="og:image" content="http://yoursite.com/images/doc/pay.png">
-<meta property="og:updated_time" content="2015-08-07T08:58:26.926Z">
+<meta property="og:updated_time" content="2015-08-12T07:00:27.272Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="帮付宝模块分析之批量代收付 ">
 <meta name="twitter:description" content="从c-team调出之后，一直在学习代收付的东西，所以今天就写点批量代收付的内容，这部分内容不多，但是对支付平台而言算是支付核心的一部分。从用途方面来说，可能只对c-team在剥离商户门户时才能用到，其他感兴趣的同学可以大概看看。
@@ -119,7 +120,7 @@ var _hmt = _hmt || [];
 </a>
       </p>
       <div class="article-entry" itemprop="articleBody">
-        <p>从c-team调出之后，一直在学习代收付的东西，所以今天就写点批量代收付的内容，这部分内容不多，但是对支付平台而言算是支付核心的一部分。从用途方面来说，可能只对c-team在剥离商户门户时才能用到，其他感兴趣的同学可以大概看看。</p>
+        <p><img src="http://img.hb.aicdn.com/06390dcbaf3ec4860afd8249b76efd3514dc115f278a7-pe9vCV_fw658" alt=""><br>从c-team调出之后，一直在学习代收付的东西，所以今天就写点批量代收付的内容，这部分内容不多，但是对支付平台而言算是支付核心的一部分。从用途方面来说，可能只对c-team在剥离商户门户时才能用到，其他感兴趣的同学可以大概看看。</p>
 <p>目前，对商户而言有两种方式实现批量代收付，一种是在商户门户上传文件，一种是连接代收付接口。无论哪种方式对于代收付系统而言后台处理逻辑相差无几。所以，我们以商户门户上传文件为例说明代收付流程以及涉及到的数据库表。</p>
 <p>批量代收付模块涉及主要表有五个:（TAMTMSFJNL）商户批次明细表、（TAMTMSFCT）商户批次总控表、（WDCTORDR）提现订单表、（CAPTXNJNL）代收付流水表、（CAPBATINF）代收付外发批次表。整体代收付流程请参照下图1(参考1)：<br><img src="/images/doc/pay.png" alt="daifu"><br>首先，商户制作报盘文件，文件格式是有帮付宝自定义的格式”.i”文件，文件的内容格式也是由帮付宝自定义。详情请参照《批量代收付文档规范》(参考2),报盘文件制作完成之后，商户在商户门户上传报盘文件（步骤1），文件上传之后，支付系统会检查文件的有效性、商户的有效性、计算费率、风控查询（步骤3）等等，如果上面的内容都检查没有问题，则将文件内容以及计算的费率一起入代收付总控表和代收付明细表（步骤2）。这时，商户管理员登陆商户门户，在商户门户查看刚才上传批次内容，如果确认批次内容正确无误商户管理员点击通过之后，系统将批次文件中的每条记录全部插入到提现订单表（步骤5）。风控操作人员审批之后财务人员再次审批，其实审批过程是修改提现订单表的交易状态（步骤6、步骤7）。风控人员和财务人员在对提现订单表中交易进行操作，无论何种结果，系统都会将交易状态同步到代收付总控表和代收付明细表（步骤8）。风控人员和财务人员对提现订单表中交易审批通过之后，系统将这些交易插入到代收付网关流水表（步骤9）。这时，等待系统定时任务，按照代收付外发控制表的参数信息对代收付网关流水表进行筛选，将筛选的交易进行打包发给银行进行处理。</p>
 <p>然后，经过10到20分钟，银行会给帮付宝回盘，回盘之后系统根据回盘信息对系统代收付网关流水表、代收付外发控制表、代收付总控表、批量代收付明细表、提现订单表中的交易状态进行修改（步骤11、步骤12）。</p>
@@ -172,11 +173,11 @@ var _hmt = _hmt || [];
     
 <nav id="article-nav">
   
-    <a href="/2015/08/06/linux-awk命令详解/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2015/08/06/HTTP中Get与Post的区别/" id="article-nav-newer" class="article-nav-link-wrap">
       <strong class="article-nav-caption">下一篇</strong>
       <p class="article-nav-title">
         
-          linux awk命令详解
+          HTTP中Get与Post的区别
         
       </p>
       <i class="icon" id="icon-chevron-right"></i>
@@ -223,25 +224,6 @@ var _hmt = _hmt || [];
             
             <div class="item-thumbnail">
               
-<a href="/2015/08/06/youku/" class="thumbnail">
-  
-    <span class="thumbnail-image thumbnail-none"></span>
-  
-</a>
-
-            </div>
-            
-            <div class="item-inner">
-              <p class="item-category"></p>
-              <p class="item-title"><a href="/2015/08/06/youku/" class="title">youku</a></p>
-              <p class="item-date"><time datetime="2015-08-06T08:33:28.000Z" itemprop="datePublished">2015-08-06</time></p>
-            </div>
-          </li>
-        
-          <li>
-            
-            <div class="item-thumbnail">
-              
 <a href="/2015/08/06/利用Spring-Boot-快速搭建项/" class="thumbnail">
   
     <span class="thumbnail-image thumbnail-none"></span>
@@ -263,7 +245,8 @@ var _hmt = _hmt || [];
               
 <a href="/2015/08/06/关于软件设计阶段需求分析与设计的一点看法/" class="thumbnail">
   
-    <span class="thumbnail-image thumbnail-none"></span>
+    <span style="background-image:url(http://img.hb.aicdn.com/2c20f66720829b86dcdc9e3aa92aef10f3395cbc3b89a-Olzb8R_fw658
+)" alt="关于软件设计阶段需求分析与设计的一点看法" class="thumbnail-image"></span>
   
 </a>
 
@@ -282,7 +265,8 @@ var _hmt = _hmt || [];
               
 <a href="/2015/08/06/linux-awk命令详解/" class="thumbnail">
   
-    <span class="thumbnail-image thumbnail-none"></span>
+    <span style="background-image:url(http://img.hb.aicdn.com/58253c4a5a1fc6b4ee693eb339b93ffd85300800f1b5-yDlWIS_fw658
+)" alt="linux awk命令详解" class="thumbnail-image"></span>
   
 </a>
 
@@ -292,6 +276,26 @@ var _hmt = _hmt || [];
               <p class="item-category"></p>
               <p class="item-title"><a href="/2015/08/06/linux-awk命令详解/" class="title">linux awk命令详解</a></p>
               <p class="item-date"><time datetime="2015-08-06T08:14:31.000Z" itemprop="datePublished">2015-08-06</time></p>
+            </div>
+          </li>
+        
+          <li>
+            
+            <div class="item-thumbnail">
+              
+<a href="/2015/08/06/HTTP中Get与Post的区别/" class="thumbnail">
+  
+    <span style="background-image:url(https://gd2.alicdn.com/bao/uploaded/i2/10882029078713220/T1v0LrFeteXXXXXXXX_!!0-item_pic.jpg
+)" alt="HTTP中Get与Post的区别" class="thumbnail-image"></span>
+  
+</a>
+
+            </div>
+            
+            <div class="item-inner">
+              <p class="item-category"></p>
+              <p class="item-title"><a href="/2015/08/06/HTTP中Get与Post的区别/" class="title">HTTP中Get与Post的区别</a></p>
+              <p class="item-date"><time datetime="2015-08-06T08:12:39.000Z" itemprop="datePublished">2015-08-06</time></p>
             </div>
           </li>
         
@@ -317,7 +321,7 @@ var _hmt = _hmt || [];
   <div class="widget-wrap widget-list">
     <h3 class="widget-title">标签</h3>
     <div class="widget">
-      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/B2B/">B2B</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/awk/">awk</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/代收付/">代收付</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/跨行转账/">跨行转账</a><span class="tag-list-count">1</span></li></ul>
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/B2B/">B2B</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/awk/">awk</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/get/">get</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/post/">post</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/代收付/">代收付</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/跨行转账/">跨行转账</a><span class="tag-list-count">1</span></li></ul>
     </div>
   </div>
 
@@ -327,7 +331,7 @@ var _hmt = _hmt || [];
   <div class="widget-wrap widget-float">
     <h3 class="widget-title">标签云</h3>
     <div class="widget tagcloud">
-      <a href="/tags/B2B/" style="font-size: 10px;">B2B</a> <a href="/tags/awk/" style="font-size: 10px;">awk</a> <a href="/tags/代收付/" style="font-size: 10px;">代收付</a> <a href="/tags/跨行转账/" style="font-size: 10px;">跨行转账</a>
+      <a href="/tags/B2B/" style="font-size: 10px;">B2B</a> <a href="/tags/awk/" style="font-size: 10px;">awk</a> <a href="/tags/get/" style="font-size: 10px;">get</a> <a href="/tags/post/" style="font-size: 10px;">post</a> <a href="/tags/代收付/" style="font-size: 10px;">代收付</a> <a href="/tags/跨行转账/" style="font-size: 10px;">跨行转账</a>
     </div>
   </div>
 
